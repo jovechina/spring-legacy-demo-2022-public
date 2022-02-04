@@ -91,3 +91,12 @@ spring mvc + mybatis + mysql  demo code for legacy spring project
 2. 错误信息的显示
 3. 后台验证
 4. 错误信息的修改
+### Day4 回顾-知识点
+1. javax validation
+2. hibernate validation
+3. jsp form error
+
+### Day5
+1. 装修估算画面
+	* 根据数据动态显示估算画面
+2. mybatis多表级联查询

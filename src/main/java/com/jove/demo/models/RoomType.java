@@ -1,8 +1,11 @@
 package com.jove.demo.models;
 
+import java.util.List;
+
 public class RoomType {
 	private int roomId;
 	private String roomType;
+
 	public int getRoomId() {
 		return roomId;
 	}

@@ -40,7 +40,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		User user = (User) model.getAttribute("user");
-		if (user == null) {
+		if (user == null || user.getUserName() == null || user.getUserName().equals("")) {
 			user = new User();
 			model.addAttribute("user",user);
 			return "home";	
