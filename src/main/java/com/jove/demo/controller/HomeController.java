@@ -1,7 +1,5 @@
 package com.jove.demo.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -10,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,20 +39,14 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
-	}
-	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String loginPage(Locale locale, Model model) {
-		return "login";
+		User user = (User) model.getAttribute("user");
+		if (user == null) {
+			user = new User();
+			model.addAttribute("user",user);
+			return "home";	
+		} else {
+			return "redirect:/estimation";
+		}		
 	}
 	
 	@Autowired
@@ -64,23 +57,35 @@ public class HomeController {
 	@Autowired
 	CodeMasterService codeMasterService;
 	
-	
-	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@Validated User user, Model model) {
-		logger.debug("userName: " +user.getUserName());
-		logger.debug("password: " +user.getPassword());
-		// TODO check login
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public String login(@Validated User user, BindingResult result, Model model) {
+
+		// 表单验证，确认输入是否符合要求
+		if(result.hasErrors()) {
+			logger.info("Inputed contents in form have errors.");
+			logger.debug("userName: " +user.getUserName());
+			logger.debug("password: " +user.getPassword());
+			return "home"; 
+		}
+		
+		// 服务端验证，确认用户是否存在。
 		user = userService.validatelogin(user);
 		logger.debug(user.getToken());
 		if(user.getToken() == null || user.getToken() == "") {
 			logger.debug("login failed");
+			result.reject("error.loginerror", "用户名密码不正确，请重新输入。");			
 			model.addAttribute("user", user);
 			return "home"; 
 		} else {
 			model.addAttribute("user",user);
 		}
 		
+		return "redirect:/estimation";
+
+	}
+	
+	@RequestMapping(value = "/estimation", method = RequestMethod.GET)
+	public String estimation(Model model) {
 		// 准备下个画面(estimation-step-1)的初始数据
 		List<RoomType> roomTypes = roomTypeService.getAll();
 		// 装修状况的Category 1

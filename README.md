@@ -79,3 +79,15 @@ spring mvc + mybatis + mysql  demo code for legacy spring project
 3. 实现login功能
 	*	密码使用加密方式
 4. 数据传递（Session Scope）
+### Day3 回顾-知识点
+1. 理解Mybatis上的Select的实现
+2. MVC各模块负责的功能
+3. 理解Spring MVC Form
+4. 数据加密
+5. 理解跨页面访问数据（Session）
+
+### Day4
+1. 表单输入数据的验证
+2. 错误信息的显示
+3. 后台验证
+4. 错误信息的修改

@@ -5,7 +5,7 @@
 
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-
+	
 	<!-- mysql database -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
