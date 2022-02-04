@@ -51,11 +51,3 @@
 	*	调用mapper程序(xxxServiceImpl.java)
 4. 测试DB访问
 
-### Day2 回顾-知识点
-1. 理解Mybatis的配置
-2. 理解Mysql的配置
-3. 理解Mybatis的开发过程
-4. 测试Mysql和Mybatis
-
-### Day3 
-### Day3 回顾-知识点
