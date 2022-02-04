@@ -15,7 +15,7 @@
 		<div class="container">
 			<form:hidden path="roomId" />
 			<form:hidden path="interiorDecoration" />
-			<input id="pageStatus" name="pageStatus" type="hidden" value="${ pageStatus }" >
+			<input id="pageStatus" name="pageStatus" type="hidden" value="${ pageStatus }">
 
 			<c:forEach var="roomCategory" items="${ roomCategories }">
 				<div class="mt-4 mb-2">
@@ -27,11 +27,11 @@
 							</div>
 							<div class="col-3  form-control-1">
 								<c:if test="${ roomService.roomProducts.size() eq 1 }">
-									<form:checkboxes path="${ roomService.serviceShortName }" items="${roomService.roomProducts}" itemValue="productId" itemLabel="productName" disabled="${ pageStatus }"/>
+									<form:checkboxes path="${ roomService.serviceShortName }" items="${roomService.roomProducts}" itemValue="productId" itemLabel="productName" disabled="${ pageStatus }" />
 								</c:if>
 								<c:if test="${ roomService.roomProducts.size()  gt 1 }">
-									<form:select path="${ roomService.serviceShortName }" multiple="false"  disabled="${ pageStatus }">
-										<form:options items="${roomService.roomProducts}" itemValue="productId" itemLabel="productName"  />
+									<form:select path="${ roomService.serviceShortName }" multiple="false" disabled="${ pageStatus }">
+										<form:options items="${roomService.roomProducts}" itemValue="productId" itemLabel="productName" />
 									</form:select>
 								</c:if>
 							</div>
@@ -40,12 +40,39 @@
 				</div>
 			</c:forEach>
 			<div class="row d-flex mt-2">
-				<div class="col d-flex justify-content-start">
-					<button type="submit" class="btn btn-primary col-4" name="action" value="prev">上一步</button>
-				</div>
-				<div class="col d-flex justify-content-end">
-					<button type="submit" class="btn btn-primary col-4" name="action" value="next">下一步</button>
-				</div>
+				<c:if test="${ pageStatus eq 'false' }">
+					<div class="col d-flex justify-content-start">
+						<button type="submit" class="btn btn-primary col-4" name="action" value="prev">上一步</button>
+					</div>
+					<div class="col d-flex justify-content-end">
+						<button type="submit" class="btn btn-primary col-4" name="action" value="next">下一步</button>
+					</div>
+				</c:if>
+				<c:if test="${ pageStatus eq 'true' }">
+					<c:choose>
+						<c:when test="${pageType eq 'DETAIL'}">
+							<div class="col d-flex justify-content-center">
+								<a class="btn btn-primary col-4" href="${pageContext.request.contextPath}/estimation-search" role="button">返回</a>
+							</div>
+						</c:when>
+						<c:when test="${pageType eq 'EDIT'}">
+							<div class="col d-flex justify-content-start">
+								<button type="submit" class="btn btn-primary col-4" name="action" value="prev">上一步</button>
+							</div>
+							<div class="col d-flex justify-content-end">
+								<button type="submit" class="btn btn-primary col-4" name="action" value="update">更新</button>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="col d-flex justify-content-start">
+								<button type="submit" class="btn btn-primary col-4" name="action" value="prev">上一步</button>
+							</div>
+							<div class="col d-flex justify-content-end">
+								<button type="submit" class="btn btn-primary col-4" name="action" value="save">保存</button>
+							</div>
+						</c:otherwise>
+					</c:choose>
+				</c:if>
 			</div>
 		</div>
 	</form:form>

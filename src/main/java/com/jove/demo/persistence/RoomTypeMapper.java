@@ -12,6 +12,10 @@ public interface RoomTypeMapper {
 	@Select("Select * from roomtype where roomId = #{roomId}")
 	public RoomType getRoomType(@Param("roomId") int roomId); 
 	
+	
+	@Select("Select roomtype from roomtype where roomId = #{roomId}")
+	public String selectRoomType(int roomId); 
+	
 	@Select("Select * from roomtype")
 	public List<RoomType> selectAll();
 	

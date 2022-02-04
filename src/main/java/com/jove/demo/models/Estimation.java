@@ -1,9 +1,14 @@
 package com.jove.demo.models;
 
+import java.util.Date;
+
 public class Estimation {
 
+	private int estimationId;
 	private int userId;
+	private String userName;
 	private int roomId;
+	private String roomType;
 	private String interiorDecoration;	
 	private String paintWall;
 	private String ceiling;
@@ -15,7 +20,15 @@ public class Estimation {
 	private String kitchenCabinet;
 	private String rangeHood;
 	private String waterPipe;
+	private Date createDate;
+	private Date updateDate;
 
+	public int getEstimationId() {
+		return estimationId;
+	}
+	public void setEstimationId(int estimationId) {
+		this.estimationId = estimationId;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -93,5 +106,29 @@ public class Estimation {
 	}
 	public void setWaterPipe(String waterPipe) {
 		this.waterPipe = waterPipe;
+	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getRoomType() {
+		return roomType;
+	}
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
 	}
 }

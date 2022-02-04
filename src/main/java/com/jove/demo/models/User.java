@@ -7,7 +7,7 @@ public class User {
 	
 	private int userId;
 	
-	@Size(min=4, max=30,message = "用户名长度不正确")
+	@Size(min=2, max=30,message = "用户名长度不正确")
 	@NotBlank(message = "用户名不能为空")
 	private String userName;
 	

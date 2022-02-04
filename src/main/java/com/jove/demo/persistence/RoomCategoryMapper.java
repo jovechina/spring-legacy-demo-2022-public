@@ -13,6 +13,7 @@ import com.jove.demo.models.RoomService;
 
 public interface RoomCategoryMapper {
 
+	// 住宅大分类
 	@Results({
 		@Result(property = "categoryId", column = "key"),
 		@Result(property = "categoryName", column = "value"),
@@ -22,6 +23,11 @@ public interface RoomCategoryMapper {
 	@Select("Select * from codemaster where category = 2")
 	public List<RoomCategory> selectAll();
 	
+	//装修状况
+	@Select("Select value from codemaster where category = 1 and `key` = #{id}")
+	public String selectRoomCategoryById(int id);
+	
+	// 服务
 	@Results({
 		@Result(property = "serviceId", column = "serviceid"),
 		@Result(property = "serviceName", column = "servicename"),
@@ -29,10 +35,15 @@ public interface RoomCategoryMapper {
 		@Result(property = "roomProducts", javaType = List.class, column = "serviceid", 
 				many = @Many(select = "com.jove.demo.persistence.RoomCategoryMapper.selectProductsByServiceId"))
 	})
-	@Select("Select * from roomservice where categoryid = #{categoryid} ")
-	public List<RoomService> selectServicesByRoomTypeId(int categoryid );
+	@Select("Select * from roomservice where categoryid = #{categoryId} ")
+	public List<RoomService> selectServicesByRoomTypeId(int categoryId );
 	
-	@Select("Select * from roomproduct where serviceid = #{serviceid}")
-	public List<RoomProduct> selectProductsByServiceId(int serviceid);	
+	// 产品
+	@Select("Select * from roomproduct where serviceid = #{serviceId}")
+	public List<RoomProduct> selectProductsByServiceId(int serviceId);	
+	
+	// 产品名称
+	@Select("Select productname from roomproduct where productid = #{productId}")
+	public String selectProductNameByProductId(int productId);	
 
 }

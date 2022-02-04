@@ -22,7 +22,7 @@ import com.jove.demo.services.UserService;
 /**
  * Handles requests for the application home page.
  */
-@SessionAttributes({ "user", "estimation" })
+@SessionAttributes({ "user", "estimation", "pageType" })
 @Controller
 public class HomeController {
 
