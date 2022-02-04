@@ -6,6 +6,15 @@ public class User {
 	private String userName;
 	private String password;
 	private String role;
+	private String Token;
+
+	public String getToken() {
+		return Token;
+	}
+
+	public void setToken(String token) {
+		Token = token;
+	}
 
 	public String getUserName() {
 		return userName;

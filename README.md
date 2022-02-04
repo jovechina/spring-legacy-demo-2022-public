@@ -1,10 +1,11 @@
-# spring legacy project training
- spring legacy + mybatis + mysql training codes
-
+# spring-legacy-demo-2022-public
+spring mvc + mybatis + mysql  demo code for legacy spring project
 
 ## 开发工具
 [JDK 11](https://developer.ibm.com/languages/java/semeru-runtimes/downloads)
+
 [Spring Tools Suite 3](https://github.com/spring-projects/toolsuite-distribution/wiki/Spring-Tool-Suite-3)
+
 [Mysql Community](https://dev.mysql.com/downloads/installer/)
 
 ## 开发步骤
@@ -18,7 +19,7 @@
 3. 功能2
 	...
 
-## 练习
+## 讲解重点
 ### Day1
 1. 项目创建
 	```
@@ -33,11 +34,13 @@
 
 
 ### Day1 回顾-知识点
-1. Spring配置文件构成的理解
-2. 如何升级组件
-3. JSP的开发
-4. View的数据如何传到Controller
-5. 调试技巧 - 使用Logger来调试程序
+1. 理解Spring配置文件
+2. 理解依赖包的设置
+3. 理解依赖包的版本升级
+4. 熟悉JSP的构成
+5. 理解View的数据如何传给Controller（Request Level）
+6. 理解Controller的数据如何传给View（Request Level）
+7. Log4j, 使用日志来调试
 
 ### Day2
 1. 添加Mybatis支持
@@ -51,3 +54,28 @@
 	*	调用mapper程序(xxxServiceImpl.java)
 4. 测试DB访问
 
+### Day2 回顾-知识点
+1. 理解Mybatis的配置
+2. 理解Mysql的配置
+3. 理解Mybatis的开发过程
+	*	Entity/Model类
+	*	xxxMapper类，或/和xxxMapper.xml
+	*	service类
+	*	Controller类
+
+### Day3 
+1. 实现下拉选择框
+	*	Model
+	*	DB访问
+	*	Service
+	*	Controller
+	*	JSP
+2. 实现Radio Button
+	*	Model
+	*	DB访问
+	*	Service
+	*	Controller
+	*	JSP
+3. 实现login功能
+	*	密码使用加密方式
+4. 数据传递（Session Scope）
