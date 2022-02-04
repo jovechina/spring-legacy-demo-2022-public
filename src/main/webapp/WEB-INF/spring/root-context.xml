@@ -6,7 +6,7 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
-	<!-- MyBatis -->
+	<!-- mysql database -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/<dbname>" />
@@ -24,9 +24,10 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="configLocation" value="/WEB-INF/spring/mybatis.xml" />
 		<property name="dataSource" ref="dataSource" />
+		<!-- <property name="mapperLocations" value="/WEB-INF/spring/mappers/*.xml" /> -->
 	</bean>
 
-	<!-- xxxMapper.xml -->
+	<!-- path of Mapper.xml -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.jove.demo.persistence" />
     </bean>
