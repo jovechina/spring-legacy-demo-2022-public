@@ -5,6 +5,8 @@ import javax.validation.constraints.Size;
 
 public class User {
 	
+	private int userId;
+	
 	@Size(min=4, max=30,message = "用户名长度不正确")
 	@NotBlank(message = "用户名不能为空")
 	private String userName;
@@ -14,6 +16,14 @@ public class User {
 	private String password;
 	private String role;
 	private String Token;
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	public String getToken() {
 		return Token;

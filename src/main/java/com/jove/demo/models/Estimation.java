@@ -1,7 +1,10 @@
 package com.jove.demo.models;
 
 public class Estimation {
+
+	private int userId;
 	private int roomId;
+	private String interiorDecoration;	
 	private String paintWall;
 	private String ceiling;
 	private String wires;
@@ -12,7 +15,19 @@ public class Estimation {
 	private String kitchenCabinet;
 	private String rangeHood;
 	private String waterPipe;
-	
+
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getInteriorDecoration() {
+		return interiorDecoration;
+	}
+	public void setInteriorDecoration(String interiorDecoration) {
+		this.interiorDecoration = interiorDecoration;
+	}
 	public int getRoomId() {
 		return roomId;
 	}

@@ -14,8 +14,6 @@ public class RoomTypeService {
 	@Autowired
 	RoomTypeMapper roomTypeMapper;
 	
-	
-
 	public List<RoomType> getAll() {
 		List<RoomType> roomTypes = roomTypeMapper.selectAll();
 		return roomTypes;

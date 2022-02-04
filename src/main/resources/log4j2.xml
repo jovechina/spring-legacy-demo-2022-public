@@ -7,6 +7,7 @@
     </appenders>
     <loggers>
         <logger name="com.jove.demo" level="debug"></logger>
+        <logger name="com.jove.demo.persistence" level="info"></logger>        
         <logger name="org.springframework.core" level="INFO"></logger>
         <logger name="org.springframework.beans" level="INFO"></logger>
         <logger name="org.springframework.context" level="INFO"></logger>
@@ -14,10 +15,9 @@
         <logger name="org.springframework" level="INFO"></logger>
         <logger name="org.mybatis" level="INFO"></logger>
         <logger name="org.hibernate.validator" level="INFO"></logger>
-        
 
-        <root level="debug">
-            <appender-ref ref="Console" level="debug"/>
+        <root level="info">
+            <appender-ref ref="Console" />
         </root>
     </loggers>
 </configuration>

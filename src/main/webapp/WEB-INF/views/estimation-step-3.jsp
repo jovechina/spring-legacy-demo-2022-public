@@ -11,27 +11,24 @@
 	<jsp:include page="includes/navbar.jsp" />
 
 	<!-- body -->
-	<form:form action="${pageContext.request.contextPath}/estimation-2" modelAttribute="estimation" method="post">
+	<form:form action="${pageContext.request.contextPath}/estimation-3" modelAttribute="estimation" method="post">
 		<div class="container">
-			<form:hidden path="roomId" />
-			<form:hidden path="interiorDecoration" />
-			<input id="pageStatus" name="pageStatus" type="hidden" value="${ pageStatus }" >
-
 			<c:forEach var="roomCategory" items="${ roomCategories }">
 				<div class="mt-4 mb-2">
 					<div class="row  ps-1 mb-2 title-1">${ roomCategory.categoryName }</div>
 					<div class="row">
 						<c:forEach var="roomService" items="${ roomCategory.roomServices }" varStatus="roomServiceStatus">
+
 							<div class="col-1  label-1">
 								<label>${roomService.serviceName}</label>
 							</div>
 							<div class="col-3  form-control-1">
 								<c:if test="${ roomService.roomProducts.size() eq 1 }">
-									<form:checkboxes path="${ roomService.serviceShortName }" items="${roomService.roomProducts}" itemValue="productId" itemLabel="productName" disabled="${ pageStatus }"/>
+									<form:checkboxes path="${ roomService.serviceShortName }" items="${roomService.roomProducts}" itemValue="productId" itemLabel="productName" disabled="true"/>
 								</c:if>
 								<c:if test="${ roomService.roomProducts.size()  gt 1 }">
-									<form:select path="${ roomService.serviceShortName }" multiple="false"  disabled="${ pageStatus }">
-										<form:options items="${roomService.roomProducts}" itemValue="productId" itemLabel="productName"  />
+									<form:select path="${ roomService.serviceShortName }" multiple="false" disabled="true">
+										<form:options items="${roomService.roomProducts}" itemValue="productId" itemLabel="productName" />
 									</form:select>
 								</c:if>
 							</div>

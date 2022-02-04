@@ -37,7 +37,7 @@
 							<form:errors class="help-inline text-danger" />
 						</div>						
 						<div class="col d-flex justify-content-center">
-							<button type="submit" class="btn btn-primary btn-sm col-4">登录</button>
+							<button type="submit" class="btn btn-primary btn-sm col-4" name="action" value="next">登录</button>
 						</div>
 					</div>
 				</div>

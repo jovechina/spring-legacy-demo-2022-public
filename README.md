@@ -100,3 +100,10 @@ spring mvc + mybatis + mysql  demo code for legacy spring project
 1. 装修估算画面
 	* 根据数据动态显示估算画面
 2. mybatis多表级联查询
+### Day5 回顾-知识点
+1. Mybatis的多表级联查询
+
+### Day6
+1. 装修估算画面 （确认画面）
+2. 画面的迁移(前后移动)
+	* 前后移动时数据的保持（Session数据）
